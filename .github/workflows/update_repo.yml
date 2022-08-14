@@ -1,0 +1,47 @@
+name: update repo
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Build
+        run: |
+          yarn
+          yarn build
+          git clone https://${{ secrets.GIT_TOKEN }}@github.com/itarze/via-keyboards-json.git
+          cd via-keyboards-json
+          git config user.email "via-bot@westberry.com"
+          git config user.name "Via-Bot"
+          cp -r ../dist/* .
+          git add .
+          git commit -m "Update at $(date "+%Y-%m-%d %H:%M:%S")" || true
+          git push
+          cd ..
+          git clone ${{ secrets.REPO_URL }}
+          cd ${{ secrets.REPO_NAME }}
+          git config user.email "via-bot@westberry.com"
+          git config user.name "Via-Bot"
+          rm -rf ./definitions/*
+          cp -r ../via-keyboards-json/* ./definitions/
+          git add .
+          git commit -m "Update at $(date "+%Y-%m-%d %H:%M:%S")" || true
+          git push

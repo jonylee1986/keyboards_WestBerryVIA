@@ -1,0 +1,26 @@
+name: via_keymap_generator
+
+on:
+  push:
+    branches:
+      - master
+    pull_request:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    environment: default
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build keymaps
+        run: ./via_keymap_generator/github_build.sh
+
+      - name: Deploy keymaps
+        run: ./via_keymap_generator/github_commit.sh
+        env:
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
