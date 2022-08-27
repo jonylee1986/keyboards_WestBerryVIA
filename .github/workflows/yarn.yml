@@ -1,7 +1,10 @@
 name: Yarn build
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
   build:
@@ -21,7 +24,7 @@ jobs:
 
       - name: Build
         run: |
-          yarn
+          yarn 
           yarn build
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
