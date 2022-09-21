@@ -1,6 +1,6 @@
 {
     "name": "VIA magic adapter",
-    "vendorId": "0x0C582",
+    "vendorId": "0xC582",
     "productId": "0x0000",
     "lighting": {
       "extends": "none"
