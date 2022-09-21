@@ -2,10 +2,7 @@ name: via_keymap_generator
 
 on:
   push:
-    branches:
-      - master
-    pull_request:
-      - master
+    branches: [master]
   workflow_dispatch:
 
 jobs:
