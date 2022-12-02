@@ -5,7 +5,7 @@
 	"lighting": "none",
 	"matrix": {"rows": 6, "cols":15 },
 	"layouts": {
-	  "": {"ISO layout":[0, 1, 0, 1]},
+	  "presets": {"ISO layout":[0, 1, 0, 1]},
 		"labels": [
 			"Split backspace",
 			"ISO layout",
