@@ -5,7 +5,7 @@
   "lighting": "qmk_backlight_rgblight",
   "matrix": {"rows": 5, "cols": 15},
   "layouts": {
-    "presets": {"HHKB": [1, 0, 0, 1, 2]},
+    "": {"HHKB": [1, 0, 0, 1, 2]},
     "labels": [
       "Split Backspace",
       "ISO Enter",
