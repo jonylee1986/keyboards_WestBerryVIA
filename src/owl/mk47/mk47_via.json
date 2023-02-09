@@ -1,6 +1,6 @@
 {
-    "name": "kb47",
-    "vendorId": "0xfffe",
+    "name": "MK47",
+    "vendorId": "0xFFFE",
     "productId": "0x0002",
     "lighting": {
         "extends": "qmk_rgblight",
