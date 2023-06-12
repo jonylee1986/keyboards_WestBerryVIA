@@ -1,5 +1,5 @@
 {
-  "name": "ProjectD Outlaw 65% ANSI",
+  "name": "ProjectD 65% ANSI",
   "vendorId": "0x3233",
   "productId": "0x5319",
   "keycodes": ["qmk_lighting"],
